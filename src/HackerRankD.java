@@ -3,16 +3,18 @@ import java.util.List;
 
 public class HackerRankD {
     public static void main(String[] args) {
-        List<Integer> q = new ArrayList<>();
-        q.add(1);
-        q.add(2);
-        q.add(5);
-        q.add(3);
-        q.add(7);
-        q.add(8);
-        q.add(6);
-        q.add(4);
-        minimumBribes(q);
+
+        List<Integer> ranked = new ArrayList<>();
+        ranked.add(100);
+        ranked.add(90);
+        ranked.add(90);
+        ranked.add(80);
+        ranked.add(75);
+        ranked.add(60);
+
+        List<Integer> player = new ArrayList<>();
+        player.add(102);
+        System.out.println(climbingLeaderboard(ranked,player).get(0));
     }
 
     public static String gridSearch(List<String> G, List<String> P) {
@@ -87,6 +89,37 @@ public class HackerRankD {
         }
 
         return counter;
+    }
+
+    public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
+        List<Integer> data = new ArrayList<>();
+        for(int i = 0;i<player.size();i++){
+            int prevValue = player.get(0);
+            int rank = 0 ;
+            int currentScore = player.get(i);
+            boolean found = false;
+
+            for(int k = 0;k<ranked.size();k++){
+                if(currentScore>=ranked.get(k)){
+                    rank++;
+                    found = true;
+                    break;
+                }else if(currentScore<ranked.get(k)){
+                    if(prevValue!=ranked.get(k)){
+                        rank++;
+                    }
+                    prevValue = ranked.get(k);
+                }
+            }
+
+            if(found){
+                data.add(rank);
+            }else {
+                rank = rank+1;
+                data.add(rank);
+            }
+        }
+        return data;
     }
 
 }
