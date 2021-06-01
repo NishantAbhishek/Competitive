@@ -3,7 +3,6 @@ package DSALGOQ_400;
 public class Array {
     public static void main(String[] args) {
 //        System.out.println(maxSubarraySum(new int[]{1,2,-1,5,-7,8},6));
-        searchMatrix(3);
     }
     public static int unionIntersection(int[] a,int[] b){
         int maxIndex = 0;
