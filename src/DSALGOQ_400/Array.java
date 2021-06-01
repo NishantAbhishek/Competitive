@@ -2,7 +2,8 @@ package DSALGOQ_400;
 
 public class Array {
     public static void main(String[] args) {
-        System.out.println(maxSubarraySum(new int[]{-99,-26,78,-50,-12,-10},5));
+//        System.out.println(maxSubarraySum(new int[]{1,2,-1,5,-7,8},6));
+        searchMatrix(3);
     }
     public static int unionIntersection(int[] a,int[] b){
         int maxIndex = 0;
@@ -179,7 +180,8 @@ public class Array {
         }
     }
 
-    static int maxSubarraySum(int arr[], int n){
+    // line 11 not optimized
+    static int maxSubarraySum2(int arr[], int n){
         int max = Integer.MIN_VALUE;
         for(int i =0;i<arr.length;i++){
             int sum = 0;
@@ -193,4 +195,25 @@ public class Array {
         }
         return max;
     }
+
+    //Line 11 optimized
+    static int maxSubarraySum(int arr[], int n){
+        int maxSum = 0;
+        int sum = 0;
+        for(int  i = 0;i<arr.length;i++){
+            sum = sum+arr[i];
+
+            if(sum>maxSum){
+                maxSum = sum;
+            }
+
+            if(sum<0){
+                sum=0;
+            }
+        }
+
+        return  maxSum;
+    }
+
+
 }
