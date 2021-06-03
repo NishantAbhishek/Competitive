@@ -2,6 +2,11 @@ package DSALGOQ_400;
 
 public class Matrix {
 
+    public static void main(String[] args) {
+        int[][] arr = {{1,3,5},{2,6,9},{3,6,9}};
+        //System.out.println(median(arr,3,3));
+    }
+
     public boolean searchMatrix(int[][] matrix, int target) {
         int cLength = matrix[0].length;
         int rLength = matrix.length;
@@ -49,4 +54,56 @@ public class Matrix {
         }
         return max_1s;
     }
+
+    public static void myMatrix(){
+        int[][] matrix =
+                {{1,2,3,4}
+                ,{5,6,7,8}
+                ,{9,10,11,12}
+                ,{13,14,15,16},{17,18,19,20}};
+        int top = 0;
+        int down = matrix.length-1;
+        int left = 0;
+        int right= matrix[0].length-1;
+        int direction = 0;
+
+        while (top<=down&&left<=right){
+            if(direction==0){
+                for(int i= left;i<=right;i++){
+                    System.out.println(matrix[top][i]);
+                }
+                top++;
+            }
+
+            if(direction==1){
+                for(int i = top;i<=down;i++){
+                    System.out.println(matrix[i][right]);
+                }
+                right--;
+            }
+
+            if(direction==2){
+                for(int i = right;i>=left;i--){
+                    System.out.println(matrix[down][i]);
+                }
+                down--;
+            }
+
+            if(direction==3){
+                for(int i = down;i>=top;i--){
+                    System.out.println(matrix[i][left]);
+                }
+                left++;
+            }
+
+            direction++;
+            if(direction>3){
+                direction = 0;
+            }
+        }
+    }
+
+
+
+
 }
