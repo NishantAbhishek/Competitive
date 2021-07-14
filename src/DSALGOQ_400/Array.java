@@ -5,7 +5,81 @@ import java.util.ArrayList;
 public class Array {
     public static void main(String[] args) {
 //        System.out.println(maxSubarraySum(new int[]{1,2,-1,5,-7,8},6));
+        int[] a = {1, 3, 5, 7,19,20,21,34,55,65,78,99,100};
+        int[] b = {0, 2, 6, 8, 9};
+        merge(a,b,a.length,b.length);
+
     }
+
+    static ArrayList<Integer> factorial(int N){
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = N;i>=0;i--){
+            list.add(i);
+        }
+        return list;
+    }
+
+    public static void merge(int a[], int b[], int n, int m) {
+        int max = 0;
+        if(n>m){
+            max = n;
+        }else{
+            max = m;
+        }
+
+        int aP = 0;
+        int bP = 0;
+        int vA = 0;
+        int vB = 0;
+
+        for(int  i =0;i<n+m;i++){
+
+
+            if(vA == -1){
+                System.out.println(b[aP]);
+                aP++;
+                continue;
+            }
+
+            if(vB == -1){
+                System.out.println(a[bP]);
+                bP++;
+                continue;
+            }
+
+            if(aP>=a.length){
+                vA = -1;
+                if(vB!=-1&&bP<=b.length){
+                    System.out.println(b[bP]);
+                }
+                continue;
+            }
+
+            if(bP>=b.length){
+                vB = -1;
+                if(vA!=-1&&aP<=a.length){
+                    System.out.println(a[aP]);
+                }
+                continue;
+            }
+
+            vA = a[aP];
+            vB = b[bP];
+
+            if(vA<vB){
+                System.out.println(vA);
+                aP++;
+            }else{
+                System.out.println(vB);
+                bP++;
+            }
+
+
+        }
+
+    }
+
+
     public static int unionIntersection(int[] a,int[] b){
         int maxIndex = 0;
         int union = 0;
