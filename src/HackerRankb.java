@@ -1,15 +1,50 @@
+import DSALGOQ_400.Array;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 public class HackerRankb{
     public static void main(String[] args) {
-        List<Integer> myList = new ArrayList<>();
-        myList.add(1);
-        myList.add(2);
-        myList.add(3);
-        myList.add(4);
-        myList.add(10);
-        System.out.println(minimumDistances(myList));
+        System.out.println(flatlandSpaceStations(20,new int[]{13,1,11,10,6}));
     }
+
+
+    static int flatlandSpaceStations(int n, int[] c) {
+        int maxDist = 0;
+        int flagLeft = 0;
+        int flagRight = 0;
+        Arrays.sort(c);
+
+
+        if(c.length>0){
+            flagRight = 1;
+        }
+
+        for(int i = 0;i<n;i++){
+            if(i>c[flagLeft] && i>c[flagRight]){
+                flagLeft++;
+                flagRight++;
+            }
+
+            if(flagRight>=c.length){
+                flagRight--;
+            }
+
+            if(flagLeft>=c.length){
+                flagLeft--;
+            }
+
+            int distFrFlagLeft = c[flagRight]-i;
+            int distFrFlagRight = c[flagLeft]-i;
+
+            int dist = Math.min(Math.abs(distFrFlagLeft),Math.abs(distFrFlagRight));
+            maxDist = Math.max(dist,maxDist);
+        }
+
+        return maxDist;
+    }
+
+
 
     public static int beautifulTriplets(int d, List<Integer> arr){
         int count = 0;
@@ -54,5 +89,28 @@ public class HackerRankb{
 
         }
     }
+
+    public static long repeatedString(String s, long n) {
+        long countAOneRepeat = 0;
+        for(int i = 0;i<s.length();i++){
+            if(String.valueOf(s.charAt(i)).equals("a")){
+                countAOneRepeat++;
+            }
+        }
+        long numberOfRepeat = n/s.length();
+        long total = numberOfRepeat*countAOneRepeat;
+        long remaningCycle = n%s.length();
+
+        for(int i = 0;i<remaningCycle;i++){
+            if(String.valueOf(s.charAt(i)).equals("a")){
+                total++;
+            }
+        }
+
+        return total;
+
+    }
+
+
 
 }
