@@ -10,7 +10,7 @@ public class Easy{
         String name = "Nishant";
         System.out.println(reverse(name.length()-1,name));
     }
-    
+
     public static int factorial(int num){
         if(num==1){
             return 1;
