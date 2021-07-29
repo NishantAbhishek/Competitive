@@ -13,6 +13,8 @@ public class HackerRankE {
                     System.out.print(" ");
                 }
             }
+
+
             startPlace--;
             System.out.println("");
         }
