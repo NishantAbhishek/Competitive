@@ -1,3 +1,5 @@
+package Past;
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] val = {1,21,34,42,78,99,121,212,321};
