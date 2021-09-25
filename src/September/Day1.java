@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public class Day1 {
     public static void main(String[] args) {
+
     }
 
     static void reverse(){
@@ -74,6 +75,6 @@ public class Day1 {
         return count;
     }
 
-    
+
 
 }
