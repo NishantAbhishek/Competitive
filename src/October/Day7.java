@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Day7 {
 
-    public static void main(String[] args) {
-        Engrave engrave = new Engrave();
-        //engrave.drawLine(6, ' ');
-        //System.out.println(engrave.charPrintCount);
-        engrave.engrave(3, 4);
-    }
+//    public static void main(String[] args) {
+//        Engrave engrave = new Engrave();
+//        //engrave.drawLine(6, ' ');
+//        //System.out.println(engrave.charPrintCount);
+//        engrave.engrave(3, 4);
+//    }
 
     public static void q1()
     {
