@@ -219,5 +219,6 @@ public class Day9 {
             System.out.println(scan.nextInt() + scan.nextInt());
             turns--;
         }
+        
     }
 }
