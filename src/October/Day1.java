@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class Day1 {
 
 
-
-
-
     public static void q3()
     {
         Scanner scan = new Scanner(System.in);
