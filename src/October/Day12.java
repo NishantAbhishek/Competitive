@@ -1,15 +1,6 @@
 package October;
 class Day12{
-    public static void main(String[] args) {
-        int[] data = {11,2,43,12,53};
-        mergeSort(data,0,data.length-1);    
-
-        for(int i = 0;i<data.length;i++){
-            System.out.println(data[i]);
-        }
-
-    }
-
+    
 
 
     public static void mergeSort(int[] arr, int beg, int end){
