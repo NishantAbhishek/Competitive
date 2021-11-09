@@ -2,30 +2,80 @@ package November.ExamPreparation;
 
 public class Question {
     public static void main(String[] args) {
-        System.out.println(String.format("%%%%"));
-        int  a  = 1,b = 2;
-        boolean myBoolean = false;
-        String myString = "123.4";
-        //myString.l
-        //myString.charAt(index)
-        System.out.println(a<b); 
-        System.out.println(a==5);
-        System.out.println(a%b==0);
-        System.out.println(myBoolean);
-        System.out.println(myString=="done");
+        int data[] = {1,2,1,1,2,1,2,1,1,2,3,3,3,3,3,3,3,4,1,1};
+
+        System.out.println(findElement(new int[]{1,2,3,2,3,3,4,5},new int[]{2,3,3}));
+    }
+        
+
+    // public static void findLargestContig(int[] data){
+
+    //     if(data==null||data.length==0){
+    //         System.out.println("YO DONT MESS WITH THE NUMBER");
+    //         return;
+    //     }
+
+    //     int MAX = 0;
+    //     int MAX_ELEMENT = data[0];
+    //     int largest = 1;
+    //     int currentElement = data[0];
+
+    //     for(int i = 1;i<data.length;i++){
+    //         if(currentElement==data[i]){
+    //             largest++;
+    //             if(MAX<largest){
+    //                 MAX = largest;
+    //                 MAX_ELEMENT = currentElement;
+    //             }
+    //         }else{
+    //             largest = 1;
+    //             currentElement=data[i];
+    //         }
+    //     }
+    //     System.out.println("MAX ELEMENT: "+MAX_ELEMENT+ " OCCURANCE: "+ MAX);
+    // }
+
+    public static int findLargestContig(int[] data, int target){
+
+        if(data==null){
+            return 0;
+        }
+
+        int maxSubArraySize = 0;
+        for (int i = 0; i < data.length; i++) {
+            if(data[i]==target){
+                maxSubArraySize++;
+            }else{
+                maxSubArraySize = 0;
+            }
+            
+        }
+        return maxSubArraySize;
+
     }
 
-    public void test(){
-        boolean internationalCalls = false;
-        boolean bonusData = false;
-        double monthlyPrice = 0;
-        if(!internationalCalls&&!bonusData){
-            monthlyPrice = 19.99;
-        }else if(!internationalCalls||!bonusData){
-            monthlyPrice = 29.99;
-        }else{
-            monthlyPrice = 38.88;
-        }                
+    public static boolean  findElement(int[] largerArr, int[] smallerArr){
+        if(largerArr==null || smallerArr==null || largerArr.length<smallerArr.length){
+            return false;
+        }
+
+        boolean holdsElement = false;
+        int outerIndex = 0;
+        while(outerIndex<largerArr.length&&!holdsElement){
+            if(largerArr[outerIndex]==smallerArr[0]){
+                boolean matchFound = true;
+                for(int i = 0;i<smallerArr.length;i++){
+                    if(largerArr[i+outerIndex]!=smallerArr[i]){
+                        matchFound = false;
+                    }
+                }
+                if(matchFound){
+                    holdsElement = true;
+                }
+            }
+            outerIndex++;
+        }
+        return holdsElement;
     }
 
 }
@@ -192,8 +242,5 @@ class Magician{
     public int getHPPercent(){
         return (hp/HP_MAX)*100;
     }
-    
-
-
 }
 */

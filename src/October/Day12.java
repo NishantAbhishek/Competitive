@@ -83,6 +83,7 @@ class Day12{
         }
         return finalArr;
     }
+    
 
 }
 
