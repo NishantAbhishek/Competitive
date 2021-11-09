@@ -1,12 +1,6 @@
 package November.ExamPreparation;
 
 public class Question {
-    public static void main(String[] args) {
-        int data[] = {1,2,1,1,2,1,2,1,1,2,3,3,3,3,3,3,3,4,1,1};
-
-        System.out.println(findElement(new int[]{1,2,3,2,3,3,4,5},new int[]{2,3,3}));
-    }
-        
 
     // public static void findLargestContig(int[] data){
 
@@ -76,6 +70,59 @@ public class Question {
             outerIndex++;
         }
         return holdsElement;
+    }
+
+    private static void encrypt(String data){
+
+        if(data.length()%2!=0){
+            data = data + " ";
+        }
+
+        String finalData = "";
+        for(int i = 0;i<data.length();i+=2){
+            char charA = data.charAt(i); 
+            char charB = data.charAt(i+1);
+            finalData = finalData + charB + "" +charA;        
+        }
+
+        System.out.println(finalData);
+                        
+    }
+
+    public static String compareArrays(int arr1[], int arr2[]){
+
+        String finalMessage = "";
+        
+        
+        
+        if(arr1.length != arr2.length){
+        
+              finalMessage = "Arrays are of unequal length.";
+        
+        }else{
+        
+               int count  = 0;
+        
+               for(int i = 0;i<arr1.length;i++){
+        
+                    if(arr1[i] == arr2[i]){
+                     count++;
+                   }
+        
+            if(count==arr1.length){
+        
+                finalMessage = "The arrays are identical.";
+        
+             }else{
+        
+                finalMessage = "Only "+ count +" elements are identical.";
+        
+             }
+        
+        }
+        }    
+        return finalMessage;
+
     }
 
 }
@@ -179,6 +226,21 @@ class Magician{
         setHp(hp);
         setMana(mana);
     }
+
+    public Magician(String name,String id){
+        setName(name);
+        setId(id);
+        setHp(hp/2);
+        setMana(mana/2);
+    }
+
+    public String toString(){
+        return "Name: "+name+"\n"+
+        "Player Id: "+id+"\n"+
+        "Player Health: "+ getHPPercent()+
+        "Player Mana: "+mana;        
+    }
+
     public boolean setName(String _name){
         boolean status = false;
         if(_name.length()<=60){
@@ -191,12 +253,19 @@ class Magician{
     public boolean setId(String id){
         boolean status = true;
         if(id.length()==8){
-            for(int i = 0;i<.length();i++){
+            for(int i = 0;i<id.length();i++){
                 char currentChar = id.codePointAt(i);
-                if(i=0){
-                    if(currentChar>)
+                if(i==0){
+                    if(currentChar<48 || currentChar>57){
+                        status = false;
+                    }
                 }else{
-
+                    if(currentChar<65 || currentChar>70){
+                        status = false;
+                    }
+                }
+                if(status){
+                    this.id = id;
                 }
             }
         }else{
@@ -240,7 +309,9 @@ class Magician{
     }
 
     public int getHPPercent(){
-        return (hp/HP_MAX)*100;
+        int percent = ((hp/HP_MAX)*100);
+        return percent;
     }
 }
+
 */
