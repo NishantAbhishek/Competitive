@@ -1,8 +1,61 @@
 package November.CodeChef;
 import java.util.*;
-import java.util.Scanner;
 
 public class Day1{
+	public static void main(String[] args) {		
+		Queue<Integer> data = new LinkedList<>();
+		data.add(1);
+		data.add(2);
+		data.add(3);
+		data.add(5);
+		data.add(2);
+		data.add(3);
+		data.add(7);
+		data.add(5);
+		data.remove();
+		System.out.println(data);
+		System.out.println(giveUniqueDat(data));
+	}
+
+	public static Queue<Integer> giveUniqueDat(Queue<Integer> data){
+		HashMap<Integer,Integer> value = new HashMap<>();
+
+		while(!data.isEmpty()){
+			int currentData = data.remove();
+			if(!value.containsKey(currentData)){
+				value.put(currentData, currentData);				
+			}
+		}
+
+		for(int key:value.keySet()){
+			data.add(value.get(key));
+		}
+
+		return data;
+	}
+
+	public static boolean bracketCheck(String data){
+		boolean possible = true;
+		int openingCount = 0;
+		int closingCount = 0;
+
+		for(int i = 0;i<data.length()&&possible;i++){
+			if(data.charAt(i)=='('){
+				openingCount++;
+			}else if(data.charAt(i)==')'){
+				closingCount++;
+			}
+
+			if(openingCount<closingCount){
+				possible = false;
+			}
+		}
+
+		if(openingCount!=closingCount){
+			possible = false;
+		}
+		return possible;
+	}
 
 	public static void q6(){
 
