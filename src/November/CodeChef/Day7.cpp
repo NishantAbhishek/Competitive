@@ -3,6 +3,53 @@
 using namespace std;
 
 
+int main(){
+
+    int testCases=0;
+    cin>>testCases;
+
+    while(testCases-->0){
+        int rows,columns;
+        cin>>rows;
+        cin>>columns;
+
+        if((rows%2)!=0 || (columns%2)!=0){
+            cout<<"NO"<<endl;
+        }else{
+            cout<<"YES"<<endl;
+        }
+    }
+    
+    return 0;
+}
+
+
+int q2(){
+    int testCases;
+    cin>>testCases;
+    while(testCases-->0){
+        int X,Y;
+        cin>>X;//score
+        cin>>Y;//matches
+
+        //win = 2
+        //tie = 1
+        //loose = 0
+
+        if(X<=Y){
+            cout<<"0"<<endl;
+        }else{
+            int numberOfWin =0;
+            while(X>Y){
+                numberOfWin++;
+                X = X-2;
+                Y--;
+            }
+            cout<<numberOfWin<<endl;
+        }
+    }
+    return  0;
+}
 
 int q1(){
     int testCases = 0;
