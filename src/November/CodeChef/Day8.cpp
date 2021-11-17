@@ -3,6 +3,63 @@
 #include<math.h>
 using namespace std;
 
+
+
+int q12() {
+    int testCases =0;
+    cin>>testCases;
+    int margin;
+    cin>>margin;
+    while(testCases-->0){
+        int rating = 0;
+        cin>>rating;
+        if(rating>=margin){
+            cout<<"Good boi"<<endl;
+        }else{
+            cout<<"Bad boi"<<endl;
+        }
+    }
+	return 0;
+}
+
+
+int q11(){
+    int testCases = 0;
+    cin>>testCases;
+    while(testCases-->0){
+        string input = "";
+        cin>>input;
+
+        bool possible  = true;
+        bool oneSequenceFound = false;
+        bool breakFound = false;
+
+        for(int i =0;i<input.length();i++){
+            char data = input.at(i);
+            if(data=='1'){
+                oneSequenceFound = true;
+                if(breakFound){
+                    possible = false;
+                }
+            }else{
+                if(oneSequenceFound){
+                    breakFound = true;
+                }
+            }
+        }
+
+        if(!oneSequenceFound){
+            cout<<"NO"<<endl;
+        }else if(possible){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+
+    }
+    return 0;
+}
+
 int q10() {
     int testCases = 0;
     cin>>testCases;
