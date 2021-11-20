@@ -1,11 +1,54 @@
 package DataStructure.Tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public  class PlayeGroundA {
     
     public static void main(String[] args) {
+        levelTraversalTesting();
+    }
+
+    public static void levelTraversalTesting(){
         PlayeGroundA playeGroundA = new PlayeGroundA();
+        Node node = playeGroundA.treeA();
+        levelOrdereTraversal(node);
+    }
+
+    public static void depthFirstSearch(){
+        PlayeGroundA playeGroundA = new PlayeGroundA(); 
         Node node =  playeGroundA.treeA();
+        playeGroundA.preOrderTraversal(node);
+        System.out.println("");
+        playeGroundA.inOrderTraversal(node);
+        System.out.println("");
         playeGroundA.postOrderTraversal(node);
+        System.out.println("");
+    }
+
+    public static void levelOrdereTraversal(Node node){
+        Queue<Node> data = new LinkedList<>();
+        if(node!=null){
+            data.add(node);
+        }
+
+        while(!data.isEmpty()){
+            Node current = data.remove();
+            System.out.println(current.nodeValue);
+
+            Node leftNode = current.left;
+            Node rightNode = current.right;
+
+            if(leftNode!=null){
+                data.add(leftNode);
+            }
+
+            if(rightNode!=null){
+                data.add(rightNode);
+            }
+        }
+        
     }
 
     public  Node treeA(){
@@ -27,9 +70,9 @@ public  class PlayeGroundA {
             return;
         }
 
-        System.out.println(node.nodeValue);
-        inOrderTraversal(node.left);
-        inOrderTraversal(node.right);
+        System.out.print(node.nodeValue+" ");
+        preOrderTraversal(node.left);
+        preOrderTraversal(node.right);
     }
 
 
@@ -39,7 +82,7 @@ public  class PlayeGroundA {
             return;
         }
         inOrderTraversal(node.left);
-        System.out.println(node.nodeValue);
+        System.out.print(node.nodeValue+" ");
         inOrderTraversal(node.right);
     }
 
@@ -51,6 +94,6 @@ public  class PlayeGroundA {
         }
         postOrderTraversal(node.left);
         postOrderTraversal(node.right);
-        System.out.println(node.nodeValue);
+        System.out.print(node.nodeValue+" ");
     }
 }
