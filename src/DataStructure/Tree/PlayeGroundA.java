@@ -7,7 +7,7 @@ import java.util.Stack;
 public  class PlayeGroundA {
     
     public static void main(String[] args) {
-        levelTraversalTesting();
+        
     }
 
     public static void levelTraversalTesting(){
