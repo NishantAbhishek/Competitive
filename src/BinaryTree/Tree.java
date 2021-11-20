@@ -15,7 +15,6 @@ public class Tree {
         tree.inOrder(node);//8 4 9 2 10 5 11 1 6 13 3 14 7
         System.out.println();
         System.out.println("Height:- "+tree.findHeight(node));
-
     }
 
 
