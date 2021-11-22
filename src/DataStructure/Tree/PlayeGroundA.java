@@ -7,7 +7,23 @@ import java.util.Stack;
 public  class PlayeGroundA {
     
     public static void main(String[] args) {
-        
+        PlayeGroundA playeGroundA = new PlayeGroundA();
+        System.out.println(heightOfTree(playeGroundA.treeA()));
+    }
+
+    public static int heightOfTree(Node node){
+        if(node==null){
+            return 0;
+        }
+
+        int leftHeight = heightOfTree(node.left);
+        int rightHeight = heightOfTree(node.right);
+
+        if(leftHeight>rightHeight){
+            return leftHeight+1;
+        }else{
+            return rightHeight+1;
+        }
     }
 
     public static void levelTraversalTesting(){

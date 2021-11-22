@@ -1,9 +1,111 @@
 package CodingPracting2021.November.CodeChef;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Day11 {
+
+    public static void q9(){
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int N = scan.nextInt();
+            int currentNum = 1;
+            for(int i = 0;i<N;i++){
+                System.out.print(currentNum+" ");
+                currentNum = currentNum+2;
+            }
+            System.out.println("");
+        }
+    }    
+
+
+    public static void q8() {
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int N = scan.nextInt();
+            if(N%2==0){
+                System.out.println(N);
+            }else{
+                System.out.println(N-1);
+            }
+        }
+    }
+
+    public static void q7(){
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int A = scan.nextInt();
+            int B = scan.nextInt();
+            int P = scan.nextInt();
+            int Q = scan.nextInt();
+
+            if(A==P && P==Q){
+                System.out.println(0);
+            }else if((A+B)%2!=(P+Q)%2){
+                System.out.println(1);
+            }else{
+                System.out.println(2);
+            }
+        }
+    }
+
+    public static void q6() {
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int X = scan.nextInt();
+            int Y = scan.nextInt();
+            int Z = scan.nextInt();
+            if(X+Y<=Z){
+                System.out.println("YES");
+            }else{
+                System.out.println("NO");
+            }
+        }
+    }
+
+    public static void q5() {
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+
+        while(testCases-->0){
+            int size = scan.nextInt();
+            int[] data = new int[size];
+            HashMap<Integer,Integer> foundData = new HashMap<>();
+            int unique = 0;
+            for(int k = 0;k<size;k++){
+                int current = data[k];
+                if(!foundData.containsKey(current)){
+                    unique++;
+                }
+                foundData.put(current, current);
+            }
+
+            System.out.println(unique);
+        }   
+    }
+
+    public static void q4() {
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int start = scan.nextInt();
+            int endNum = scan.nextInt();
+            int total = 0;
+            for(int i =start;i<=endNum;i++){
+                if(i%10==2||i%10==3||i%10==9){
+                    total++;
+                }
+            }
+            System.out.println(total);
+        }
+    }
+
+
     public static void q3() {
         Scanner scan = new Scanner(System.in);
         int testCases = scan.nextInt();
