@@ -3,32 +3,99 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Day13 {
+
     public static void main(String[] args) {
+        
+    }
+
+    public static void q11() {
         Scanner scan = new Scanner(System.in);
         int testCases = scan.nextInt();
-        
+
         while(testCases-->0){
             int A = scan.nextInt();
             int B = scan.nextInt();
             int P = scan.nextInt();
             int Q = scan.nextInt();
-            
-            if(P%A==0 && Q%B==0){
-                int aliceTime = (P/A)*2;
-                int bobTime = ((Q/B)*2)-1;
 
-                if(aliceTime-bobTime==1||bobTime-aliceTime==1){
-                    System.out.println("YES");
-                }else{
-                    System.out.println("NO");
-                }
-
+            //System.out.println("Q: "+Q+" B: "+B+" Q/B: "+Q/B);
+            //System.out.println("P: "+P+" A: "+A+" P/A: "+P/A);
+            //System.out.println((Q/B)-(P/A));
+            if((P%A==0) && (Q%B==0) && (Q/B==P/A || (Q/B)-(P/A)==1 || (Q/B)-(P/A)== -1)){
+                System.out.println("YES");
             }else{
                 System.out.println("NO");
             }
-
         }
-        
+    }
+
+    public static void q10() {
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+
+        while(testCases-->0){
+            int l = scan.nextInt();
+            String inputA = scan.next();   
+            String inputB = scan.next();
+            int total = 0;
+            boolean streakB = false;
+            if(inputB.charAt(l-1)>inputA.charAt(l-1)){
+                total++;
+                streakB = true;
+            }
+            for(int i = l-2;i>=0;i--){
+                char A = inputA.charAt(i);
+                char B = inputB.charAt(i);
+                if(B>A){
+                    total++;
+                    streakB = true;
+                }else if(B<A){
+                    streakB = false;
+                }else{
+                    if(streakB){
+                        total++;
+                    }
+                }
+            }
+            System.out.println(total);
+        }
+    }
+
+    public static void q9(){
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        while(testCases-->0){
+            int length = scan.nextInt();
+
+            int max = -1;
+            int min = Integer.MAX_VALUE;
+
+            for(int i = 0;i<length;i++){
+                int input = scan.nextInt();
+                if(max<input){
+                    max = input;
+                }
+                if(min<input){
+                    min = input;
+                }
+            }
+
+            System.out.println(max-min);
+        }
+    }
+
+    public static void q8() {
+        Scanner scan = new Scanner(System.in);
+        int totalCases = scan.nextInt();
+        while(totalCases-->0){
+            int K = scan.nextInt();
+            int N = scan.nextInt();
+            if(K%N==0){
+                System.out.println((K/N));
+            }else{
+                System.out.println((K/N)+1);
+            }
+        }
     }
 
     public static void q7() {
